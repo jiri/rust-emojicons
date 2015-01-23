@@ -9,7 +9,7 @@ fn main() {
         return;
     }
 
-    let string = args[1].as_slice();
+    let string = args[1].clone();
 
     println!("{}", emoji::parse(string));
 }

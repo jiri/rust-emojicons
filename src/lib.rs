@@ -9,18 +9,22 @@ extern crate phf;
 extern crate regex_macros;
 extern crate regex;
 
-static REGEX: regex::Regex = regex!(r":([a-zA-Z0-9_\\+\\-]+):");
+use regex::{
+    Regex,
+    Captures,
+};
+
+static REGEX: Regex = regex!(r":([a-zA-Z0-9_\\+\\-]+):");
 
 include!("emojis.rs");
 
-pub fn parse(string: &str) -> String {
-    REGEX.replace_all(string, |&: capts: &regex::Captures| {
-        /* NOTE: Is this safe to assume? */
+pub fn parse(string: String) -> String {
+    REGEX.replace_all(string.as_slice(), |&: capts: &Captures| {
         let sym = capts.at(0).unwrap();
 
         match EMOJIS.get(sym) {
-            Some(emoji) => format!("{}", emoji),
-            None        => sym.to_string()
+            Some(e) => format!("{}", e),
+            None    => sym.to_string()
         }
     })
 }
