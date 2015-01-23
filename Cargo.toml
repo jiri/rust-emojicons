@@ -1,5 +1,18 @@
 [package]
 
-name = "emoji-rs"
+name = "emoji"
 version = "0.0.1"
 authors = ["Jiří Šebele <sindriava@gmail.com>"]
+
+[dependencies]
+
+regex = "0.1.10"
+regex_macros = "0.1.5"
+
+[dependencies.phf]
+
+git = "https://github.com/sfackler/rust-phf"
+
+[dependencies.phf_mac]
+
+git = "https://github.com/sfackler/rust-phf"
