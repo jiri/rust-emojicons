@@ -1,13 +1,21 @@
-# Emoji-rs
+# Emojicons
 
-This is a simple emoji parser written in Rust.
+Emojicons is a simple emoji parser written in Rust focused on ease of use and speed. It uses hashed map for fast lookup and compiled regular expressions for parsing strings.
 
 ## Example usage
 
-```
-cargo run :poop:
+The library is extremely straightforward to use. For parsing strings, use the `parse` function:
+
+```rust
+emojicons::parse("Hello! :smile:".to_string());
 ```
 
+This will return "Hello! :smile:"
+
+There is also a macro for direct access to emoji:
+
+```rust
+emoji!(":cat:");
 ```
-cargo run "Hello, world! :smile:"
-```
+
+Will return a string with the glyph for :cat:.
