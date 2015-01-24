@@ -13,11 +13,5 @@ license = "MIT"
 
 regex = "0.1.10"
 regex_macros = "0.1.5"
-
-[dependencies.phf]
-
-git = "https://github.com/sfackler/rust-phf"
-
-[dependencies.phf_mac]
-
-git = "https://github.com/sfackler/rust-phf"
+phf = "0.5.0"
+phf_mac = "0.5.0"
