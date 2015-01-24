@@ -24,6 +24,11 @@ fn parse_nonexistent() {
 }
 
 #[test]
+fn parse_in_string() {
+    assert_eq!(parse(":cat: make me :smile:".to_string()), "\u{01F431} make me \u{01F604}".to_string());
+}
+
+#[test]
 fn macros() {
     assert_eq!(emoji!(":smile:"), "\u{01F604}".to_string());
     assert_eq!(emoji!(":stuff:"), "".to_string());
