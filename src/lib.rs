@@ -18,6 +18,17 @@ static REGEX: Regex = regex!(r":([a-zA-Z0-9_\\+\\-]+):");
 
 include!("emojis.rs");
 
+/// Macro for accessing emojis directly
+///
+/// This macro will expand to the string stored in `EMOJIS`, yielding a `String`.
+///
+/// If the emoji does not exist, "" will be returned instead.
+///
+/// # Example
+///
+/// ```rust
+/// emoji!(":smile:");
+/// ```
 #[macro_export]
 macro_rules! emoji {
     ($e: expr) => (
@@ -25,6 +36,20 @@ macro_rules! emoji {
     )
 }
 
+/// Parse the text, replacing emoji notation with a unicode character
+///
+/// Leaves the notation intact if a corresponding emoji is not found in the
+/// lookup table.
+///
+/// # Arguments
+///
+/// * `string` - The string to parse.
+///
+/// # Example
+///
+/// ```rust
+/// parse("Hello, :poop:!")
+/// ```
 pub fn parse(string: String) -> String {
     REGEX.replace_all(string.as_slice(), |&: capts: &Captures| {
         let sym = capts.at(0).unwrap();
