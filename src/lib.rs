@@ -29,7 +29,9 @@ include!("emojis.rs");
 /// ```rust
 /// #[macro_use] extern crate emojicons;
 ///
+/// # fn main() {
 /// emoji!(":smile:");
+/// # }
 /// ```
 #[macro_export]
 macro_rules! emoji {
