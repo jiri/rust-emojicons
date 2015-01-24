@@ -1,8 +1,13 @@
 [package]
 
 name = "emoji"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Jiří Šebele <sindriava@gmail.com>"]
+
+description = "Parse :emoji: notation to unicode representation."
+repository = "https://github.com/sindriava/emoji-rs"
+readme = "README.md"
+license = "MIT"
 
 [dependencies]
 
