@@ -27,6 +27,8 @@ include!("emojis.rs");
 /// # Example
 ///
 /// ```rust
+/// #[macro_use] extern crate emojicons;
+///
 /// emoji!(":smile:");
 /// ```
 #[macro_export]
@@ -48,7 +50,9 @@ macro_rules! emoji {
 /// # Example
 ///
 /// ```rust
-/// parse("Hello, :poop:!")
+/// use emojicons::parse;
+///
+/// parse("Hello, :poop:!".to_string());
 /// ```
 pub fn parse(string: String) -> String {
     REGEX.replace_all(string.as_slice(), |&: capts: &Captures| {

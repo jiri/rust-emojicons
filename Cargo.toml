@@ -1,6 +1,6 @@
 [package]
 
-name = "emoji"
+name = "emojicons"
 version = "0.3.0"
 authors = ["Jiří Šebele <sindriava@gmail.com>"]
 

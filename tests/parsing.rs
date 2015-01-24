@@ -1,9 +1,9 @@
 #![allow(unstable)]
 
 #[macro_use]
-extern crate emoji;
+extern crate emojicons;
 
-use emoji::parse;
+use emojicons::parse;
 
 #[test]
 fn parse_existing() {
