@@ -1,5 +1,6 @@
 #![allow(unstable)]
 
+#[macro_use]
 extern crate emoji;
 
 use emoji::parse;
@@ -20,4 +21,10 @@ fn parse_nonexistent() {
     assert_eq!(parse(":++:".to_string()),    ":++:".to_string());
     assert_eq!(parse(":--:".to_string()),    ":--:".to_string());
     assert_eq!(parse(":666:".to_string()),   ":666:".to_string());
+}
+
+#[test]
+fn macros() {
+    assert_eq!(emoji!(":smile:"), "\u{01F604}".to_string());
+    assert_eq!(emoji!(":stuff:"), "".to_string());
 }

@@ -18,6 +18,13 @@ static REGEX: Regex = regex!(r":([a-zA-Z0-9_\\+\\-]+):");
 
 include!("emojis.rs");
 
+#[macro_export]
+macro_rules! emoji {
+    ($e: expr) => (
+        $crate::EMOJIS.get($e.as_slice()).unwrap_or(&"").to_string()
+    )
+}
+
 pub fn parse(string: String) -> String {
     REGEX.replace_all(string.as_slice(), |&: capts: &Captures| {
         let sym = capts.at(0).unwrap();

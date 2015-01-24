@@ -1,4 +1,4 @@
-static EMOJIS: phf::Map<&'static str, &'static str> = phf_map! {
+pub static EMOJIS: phf::Map<&'static str, &'static str> = phf_map! {
     ":+1:"                               => "\u{01F441}",
     ":-1:"                               => "\u{01F44E}",
     ":100:"                              => "\u{01F4AF}",
