@@ -54,10 +54,10 @@ macro_rules! emoji {
 /// ```rust
 /// use emojicons::parse;
 ///
-/// parse("Hello, :poop:!".to_string());
+/// parse("Hello, :poop:!");
 /// ```
-pub fn parse(string: String) -> String {
-    REGEX.replace_all(string.as_slice(), |&: capts: &Captures| {
+pub fn parse(string: &str) -> String {
+    REGEX.replace_all(string, |&: capts: &Captures| {
         let sym = capts.at(0).unwrap();
 
         match EMOJIS.get(sym) {
