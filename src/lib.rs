@@ -14,7 +14,7 @@ use regex::{
     Captures,
 };
 
-static REGEX: Regex = regex!(r":([a-zA-Z0-9_\\+\\-]+):");
+static REGEX: Regex = regex!(r":([a-zA-Z0-9_+-]+):");
 
 include!("emojis.rs");
 
