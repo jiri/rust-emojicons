@@ -4,6 +4,7 @@
 extern crate emojicons;
 
 use emojicons::parse;
+use emojicons::Emojify;
 
 #[test]
 fn parse_existing() {
@@ -32,4 +33,14 @@ fn parse_in_string() {
 fn macros() {
     assert_eq!(emoji!(":smile:"), "\u{01F604}".to_string());
     assert_eq!(emoji!(":stuff:"), "".to_string());
+}
+
+#[test]
+fn new_syntax() {
+    assert_eq!(":smile:".emojify(), "\u{01F604}");
+    assert_eq!(":poop:".emojify(),  "\u{01F4A9}");
+    assert_eq!(":cat:".emojify(),   "\u{01F431}");
+    assert_eq!(":+1:".emojify(),    "\u{01F441}");
+    assert_eq!(":-1:".emojify(),    "\u{01F44E}");
+    assert_eq!(":8ball:".emojify(), "\u{01F3B1}");
 }

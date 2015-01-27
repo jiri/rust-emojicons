@@ -66,3 +66,20 @@ pub fn parse(string: &str) -> String {
         }
     })
 }
+
+pub trait Emojify {
+    fn emojify(&self) -> String;
+}
+
+impl Emojify for str {
+    fn emojify(&self) -> String {
+        REGEX.replace_all(self, |&: capts: &Captures| {
+            let sym = capts.at(0).unwrap();
+
+            match EMOJIS.get(sym) {
+                Some(e) => format!("{}", e),
+                None    => sym.to_string()
+            }
+        })
+    }
+}
