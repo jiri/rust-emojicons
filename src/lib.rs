@@ -40,38 +40,24 @@ macro_rules! emoji {
     )
 }
 
-/// Parse the text, replacing emoji notation with a unicode character
-///
-/// Leaves the notation intact if a corresponding emoji is not found in the
-/// lookup table.
-///
-/// # Arguments
-///
-/// * `string` - The string to parse.
-///
-/// # Example
-///
-/// ```rust
-/// use emojicons::parse;
-///
-/// parse("Hello, :poop:!");
-/// ```
-pub fn parse(string: &str) -> String {
-    REGEX.replace_all(string, |&: capts: &Captures| {
-        let sym = capts.at(0).unwrap();
-
-        match EMOJIS.get(sym) {
-            Some(e) => format!("{}", e),
-            None    => sym.to_string()
-        }
-    })
-}
-
+/// An extension trait for `str` which provides emojifying methods
 pub trait Emojify {
     fn emojify(&self) -> String;
 }
 
 impl Emojify for str {
+    /// Parse the text, replacing emoji notation with a unicode character
+    ///
+    /// Leaves the notation intact if a corresponding emoji is not found in the
+    /// lookup table.
+    ///
+    /// # Example
+    ///
+    /// ```rust
+    /// use emojicons::Emojify;
+    ///
+    /// "Hello, :poop:!".emojify();
+    /// ```
     fn emojify(&self) -> String {
         REGEX.replace_all(self, |&: capts: &Captures| {
             let sym = capts.at(0).unwrap();
