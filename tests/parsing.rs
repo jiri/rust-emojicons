@@ -1,4 +1,4 @@
-#![allow(unstable)]
+#![feature(collections)]
 
 #[macro_use]
 extern crate emojicons;
@@ -30,6 +30,5 @@ fn parse_in_string() {
 
 #[test]
 fn macros() {
-    assert_eq!(emoji!(":smile:"), "\u{01F604}");
-    assert_eq!(emoji!(":stuff:"), "");
+    assert_eq!(emoji!("smile").to_string(), "\u{01F604}".to_string());
 }

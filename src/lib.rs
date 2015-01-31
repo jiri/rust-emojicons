@@ -1,5 +1,4 @@
-#![allow(unstable)]
-#![feature(plugin)]
+#![feature(plugin, collections)]
 
 #[plugin] #[no_link]
 extern crate phf_mac;
@@ -30,13 +29,15 @@ include!("emojis.rs");
 /// #[macro_use] extern crate emojicons;
 ///
 /// # fn main() {
-/// emoji!(":smile:");
+/// emoji!("smile");
 /// # }
 /// ```
 #[macro_export]
 macro_rules! emoji {
     ($e: expr) => (
-        $crate::EMOJIS.get($e.as_slice()).unwrap_or(&"").to_string()
+        $crate::EMOJIS.get(
+            format!(":{}:", $e).as_slice())
+        .unwrap()
     )
 }
 
