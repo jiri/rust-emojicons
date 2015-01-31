@@ -15,7 +15,7 @@ This will return "Hello! :smile:"
 There is also a macro for direct access to emoji:
 
 ```rust
-emoji!(":cat:");
+emoji!("cat");
 ```
 
 Will return a string with the glyph for :cat:.
