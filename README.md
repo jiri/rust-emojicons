@@ -7,7 +7,7 @@ Emojicons is a simple emoji parser written in Rust focused on ease of use and sp
 The library is extremely straightforward to use. For parsing strings, use the `parse` function:
 
 ```rust
-emojicons::parse("Hello! :smile:".to_string());
+"Hello, :smile:!".emojify();
 ```
 
 This will return "Hello! :smile:"
