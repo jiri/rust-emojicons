@@ -1,5 +1,3 @@
-#![feature(collections)]
-
 #[macro_use]
 extern crate emojicons;
 
