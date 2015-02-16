@@ -1,10 +1,11 @@
 #![feature(core, plugin)]
+#![plugin(phf_macros, regex_macros)]
 
-#[plugin] #[no_link]
+#[no_link]
 extern crate phf_macros;
 extern crate phf;
 
-#[plugin] #[no_link]
+#[no_link]
 extern crate regex_macros;
 extern crate regex;
 
