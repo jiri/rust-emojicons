@@ -1,4 +1,4 @@
-#![feature(core, plugin)]
+#![feature(plugin)]
 #![plugin(phf_macros, regex_macros)]
 
 #[no_link]
@@ -36,9 +36,7 @@ include!("emojis.rs");
 #[macro_export]
 macro_rules! emoji {
     ($e: expr) => (
-        $crate::EMOJIS.get(
-            format!(":{}:", $e).as_slice())
-        .unwrap()
+        $crate::EMOJIS.get(&format!(":{}:", $e)[..]).unwrap()
     )
 }
 
@@ -61,7 +59,7 @@ impl Emojify for str {
     /// "Hello, :poop:!".emojify();
     /// ```
     fn emojify(&self) -> String {
-        REGEX.replace_all(self, |&: capts: &Captures| {
+        REGEX.replace_all(self, |capts: &Captures| {
             let sym = capts.at(0).unwrap();
 
             match EMOJIS.get(sym) {

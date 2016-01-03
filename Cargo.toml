@@ -1,7 +1,7 @@
 [package]
 
 name = "emojicons"
-version = "0.5.2"
+version = "0.5.3"
 authors = ["Jiří Šebele <sindriava@gmail.com>"]
 
 description = "Parse :emoji: notation to unicode representation."
@@ -11,13 +11,8 @@ license = "MIT"
 
 [dependencies]
 
-regex = "0.1.10"
-regex_macros = "0.1.5"
+regex = "0.1.44"
+regex_macros = "0.1.25"
 
-[dependencies.phf]
-
-git = "https://github.com/sfackler/rust-phf"
-
-[dependencies.phf_macros]
-
-git = "https://github.com/sfackler/rust-phf"
+phf = "0.7.10"
+phf_macros = "0.7.10"
