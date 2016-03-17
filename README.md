@@ -1,4 +1,4 @@
-# Emojicons [![Build Status](https://travis-ci.org/sindriava/rust-emojicons.svg)](https://travis-ci.org/sindriava/rust-emojicons)
+# Emojicons [![Build Status](https://travis-ci.org/jiri/rust-emojicons.svg?branch=master)](https://travis-ci.org/jiri/rust-emojicons)
 
 Emojicons is a simple emoji parser written in Rust focused on ease of use and speed. It uses hashed map for fast lookup and compiled regular expressions for parsing strings.
 
