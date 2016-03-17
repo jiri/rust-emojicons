@@ -4,10 +4,10 @@ Emojicons is a simple emoji parser written in Rust focused on ease of use and sp
 
 ## Example usage
 
-The library is extremely straightforward to use. For parsing strings, use the `parse` function:
+The library is extremely straightforward to use. For transforming strings, use the formatter:
 
 ```rust
-"Hello, :smile:!".emojify();
+format!("{}", EmojiFormatter("Hello, :smile:!"));
 ```
 
 This will return "Hello! :smile:"
