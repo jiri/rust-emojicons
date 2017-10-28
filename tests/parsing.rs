@@ -29,3 +29,8 @@ fn format_string() {
 fn macros() {
     assert_eq!(emoji!("smile").to_string(), "\u{01F604}");
 }
+
+#[test]
+fn macros_nonexistent() {
+    assert_eq!(emoji!("eat").to_string(), "eat");
+}

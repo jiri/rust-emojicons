@@ -27,7 +27,7 @@ include!(concat!(env!("OUT_DIR"), "/emojis.rs"));
 #[macro_export]
 macro_rules! emoji {
     ($e: expr) => (
-        $crate::EMOJIS.get(&format!(":{}:", $e)[..]).unwrap()
+        $crate::EMOJIS.get(&format!(":{}:", $e)[..]).unwrap_or(&$e);
     )
 }
 
